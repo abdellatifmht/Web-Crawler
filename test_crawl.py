@@ -5,7 +5,8 @@ from crawl import (
     get_heading_from_html,
     get_images_from_html,
     get_urls_from_html,
-    normalize_url
+    normalize_url,
+    get_html
 )
 
 
@@ -160,6 +161,9 @@ class TestCrawl(unittest.TestCase):
             "image_urls": [],
         }
         self.assertEqual(actual, expected)
+
+
+    # def test
 
 
 if __name__ == "__main__":
