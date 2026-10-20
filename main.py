@@ -14,8 +14,8 @@ async def main():
         sys.exit(1)
 
     base_url = sys.argv[1]
-    max_concurrency = int(sys.argv[2])
-    max_pages = int(sys.argv[3])
+    max_concurrency = int(sys.argv[2]) or 3
+    max_pages = int(sys.argv[3]) or 10
 
     print(f"Starting async crawl of: {base_url}")
 
