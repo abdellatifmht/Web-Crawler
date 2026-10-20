@@ -96,30 +96,5 @@ uv run python -m unittest
 | `pyproject.toml` | Project metadata and dependencies |
 | `uv.lock` | Locked dependency versions |
 
-## Publishing to GitHub
 
-Create an empty repository on GitHub, then connect this local repository and
-push the current branch:
 
-```bash
-git remote add origin https://github.com/<your-username>/Web-Crawler.git
-git add .
-git commit -m "Document project usage"
-git push -u origin crawl
-```
-
-If your GitHub repository should use `main` as its default branch instead:
-
-```bash
-git branch -M main
-git push -u origin main
-```
-
-Do not commit local virtual environments, Python cache files, or generated
-reports; these are excluded by `.gitignore`.
-
-## License
-
-No license has been specified yet. Add a `LICENSE` file before distributing
-this project if you want to grant others explicit rights to use, modify, or
-redistribute it.
