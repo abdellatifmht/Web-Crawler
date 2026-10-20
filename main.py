@@ -3,19 +3,21 @@ import sys
 from crawl import crawl_site_async
 from json_report import write_json_report
 
+
 async def main():
-    len_args = len(sys.argv)
-    if len_args < 2:
+    args = sys.argv[1:]
+
+    if not args:
         print("no website provided")
         sys.exit(1)
 
-    elif len_args > 4:
+    if len(args) > 3:
         print("too many arguments provided")
         sys.exit(1)
 
-    base_url = sys.argv[1]
-    max_concurrency = int(sys.argv[2]) or 3
-    max_pages = int(sys.argv[3]) or 10
+    base_url = args[0]
+    max_concurrency = int(args[1]) if len(args) > 1 else 3
+    max_pages = int(args[2]) if len(args) > 2 else 10
 
     print(f"Starting async crawl of: {base_url}")
 
@@ -23,7 +25,7 @@ async def main():
 
     for page in page_data.values():
         print(f"Found {len(page['outgoing_links'])} outgoing links on {page['url']}")
-    
+
     write_json_report(page_data, filename="report.json")
 
 
